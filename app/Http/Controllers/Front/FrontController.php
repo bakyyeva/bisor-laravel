@@ -21,6 +21,7 @@ class FrontController extends Controller
     {
 
         $questions = Question::latest();
+        $sum = $questions->count();
 
         if(request('search'))
         {
@@ -29,7 +30,8 @@ class FrontController extends Controller
                 ->orWhere('description', 'like', '%'. request('search') .'%');
         }
         return view('pages.questions', [
-            'questions' => $questions->get()
+            'questions' => $questions->get(),
+            'sum' => $sum,
         ]);
     }
     public function show(Question $question)

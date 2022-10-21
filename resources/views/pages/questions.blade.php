@@ -60,7 +60,7 @@
 <main>
     <div class="baslik">
         <h1>Sorular</h1>
- <p>3 adet soru var</p>
+ <p> Toplam: {{ $sum }} adet soru var</p>
     </div>
     <hr style="height:1px;border-width:0;color:cyan;background-color:lightgray; margin: 20px 40px;">
     @foreach($questions as $question)
