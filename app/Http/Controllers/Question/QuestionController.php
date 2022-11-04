@@ -16,14 +16,13 @@ class QuestionController extends Controller
     }
     public function store(QuestionRequest $request)
     {
-        $question = Question::create([
+         Question::create([
             'user_id' => auth()->user()->id,
             'title' => $request->title,
             'description' => $request->description,
             'file' => $request->file('uploadedFile')->store('questions'),
         ]);
 
-        $question->save();
         return redirect()->route('index');
     }
     public function viewUpdate(Request $request)
